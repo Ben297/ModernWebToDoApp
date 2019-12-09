@@ -1,13 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import CardCreator from "./components/CardCreator";
 import './App.css';
-import TodoCard from "./components/TodoCard";
-function App() {
-  return (
-    <div className="App">
-     <TodoCard/>
+import CardForm from "./components/addTodoForm";
+import App from "react-scripts/template-typescript/src/App";
+
+const app = () => (
+    <>
+    <div>
+        <CardCreator/>
     </div>
-  );
-}
+    <div>
+        <h2>Add a new Card</h2>
+        <CardForm/>
+    </div>
+
+    </>
+);
+
 
 export default App;
