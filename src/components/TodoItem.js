@@ -29,24 +29,28 @@ export default class TodoItem extends Component {
   }
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
+      const {todo, completeTodo, deleteTodo} = this.props
 
-    let element
-    if (this.state.editing) {
-      element = (
-        <TodoTextInput title={todo.title}
-                       editing={this.state.editing}
-                       onSave={(title) => this.handleSave(todo.id, title)} />
-      )
-    } else {
-      element = (
+      let card, edit
+      if (this.state.editing) {
+          edit = (
+              <TodoTextInput title={todo.title}
+                             editing={this.state.editing}
+                             onSave={(title) => this.handleSave(todo.id, title)}/>
+          )
+      } else{
+          edit = (
+          <div className="header">
+              {todo.title}
+          </div>)
+        }
+
+      card = (
 
           <div className="ui card">
             <div className="content">
 
-                <div className="header">
-                  {todo.title}
-                </div>
+                {edit}
 
                 <div className="description">
                   <div className="ui slider checkbox">
@@ -70,14 +74,14 @@ export default class TodoItem extends Component {
             </div>
           </div>
       )
-    }
+    
 
     return (
       <div className={classnames({
         completed: todo.completed,
         editing: this.state.editing
       })}>
-        {element}
+        {card}
       </div>
     )
   }
