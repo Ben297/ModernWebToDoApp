@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TodoTextInput from './TodoTextInput'
 
-const Header = ({ addTodo }) => (
+const AddTodo = ({ addTodo }) => (
   <header className="header">
     <h1>Simple Todo-App</h1>
     <TodoTextInput
@@ -17,8 +17,8 @@ const Header = ({ addTodo }) => (
   </header>
 )
 
-Header.propTypes = {
+AddTodo.propTypes = {
   addTodo: PropTypes.func.isRequired
 }
 
-export default Header
+export default AddTodo

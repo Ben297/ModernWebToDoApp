@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../containers/Header'
-import MainSection from '../containers/MainSection'
+import Header from '../containers/AddTodo'
+import MainSection from '../containers/ContentWrapper'
 
 const App = () => (
   <div className="ui grid">

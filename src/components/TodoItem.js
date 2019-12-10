@@ -47,23 +47,31 @@ export default class TodoItem extends Component {
 
       card = (
 
-          <div className="ui card">
+          <div className="ui card" style={{margin: 1 +'em'}}>
             <div className="content">
+                <div class="right floated " >
+                    <div className="ui slider checkbox">
 
-                {edit}
-
-                <div className="description">
-                  <div className="ui slider checkbox">
                     <input className=""
                            type="checkbox"
                            checked={todo.completed}
                            onChange={() => completeTodo(todo.id)} />
+                        <label>
+                            Done?
+                        </label>
+                     </div>
+                </div>
+                {edit}
+
+                <div className="description">
+
+
 
                     <label onDoubleClick={this.handleDoubleClick}>
                       {todo.description}
                     </label>
                   </div>
-                </div>
+
             </div>
             <div className="extra content">
               <div className="ui two buttons">

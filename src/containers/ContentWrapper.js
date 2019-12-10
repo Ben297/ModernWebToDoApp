@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import * as TodoActions from '../actions'
 import { bindActionCreators } from 'redux'
-import MainSection from '../components/MainSection'
+import ContentWrapper from '../components/ContentWrapper'
 import { getCompletedTodoCount } from '../selectors'
 
 
@@ -19,5 +19,5 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MainSection)
+)(ContentWrapper)
 
