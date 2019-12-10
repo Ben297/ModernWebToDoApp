@@ -1,16 +1,14 @@
-import React from "react";
-import TodoCardList from "./TodoCardList";
-import TodoForm from "./addTodoForm"
+import React from 'react'
+import Footer from './Footer'
+import AddTodo from '../container/AddTodo'
+import VisibleTodoList from '../container/VisibleTodoList'
+
 const App = () => (
-    <>
-        <div>
-            <h2>TODOS</h2>
-            <TodoCardList />
-        </div>
-        <div>
-            <h2>Add a new ToDO</h2>
-            <TodoForm />
-        </div>
-    </>
-);
-export default App;
+    <div>
+        <AddTodo />
+        <VisibleTodoList />
+        <Footer />
+    </div>
+)
+
+export default App
