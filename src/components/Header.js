@@ -4,15 +4,15 @@ import TodoTextInput from './TodoTextInput'
 
 const Header = ({ addTodo }) => (
   <header className="header">
-    <h1>todos</h1>
+    <h1>Simple Todo-App</h1>
     <TodoTextInput
       newTodo
-      onSave={(text) => {
-        if (text.length !== 0) {
-          addTodo(text)
+      onSave={(title,description) => {
+        if (title.length !== 0) {
+          addTodo(title,description)
         }
       }}
-      placeholder="What needs to be done?"
+      placeholder="Add your next Todo"
     />
   </header>
 )

@@ -9,7 +9,8 @@ import {
 
 const initialState = [
   {
-    text: 'Use Redux',
+    title: 'Use Redux',
+    description: 'or better use vue',
     completed: false,
     id: 0
   }
@@ -23,7 +24,8 @@ export default function todos(state = initialState, action) {
         {
           id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
           completed: false,
-          text: action.text
+          title: action.title,
+          description: action.description
         }
       ]
 
@@ -35,7 +37,7 @@ export default function todos(state = initialState, action) {
     case EDIT_TODO:
       return state.map(todo =>
         todo.id === action.id ?
-          { ...todo, text: action.text } :
+          { ...todo, title: action.title , description : action.description } :
           todo
       )
 

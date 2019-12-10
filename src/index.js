@@ -4,10 +4,12 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './reducers'
 import App from './components/App'
-import {saveState,loadState} from "./container/localstorage";
+import {saveState,loadState} from "./actions/localstorage";
 
 const persistedState = loadState();
-const store = createStore(rootReducer,persistedState);
+
+const store = createStore(rootReducer,persistedState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 store.subscribe(() => {
     saveState({
         todos: store.getState().todos

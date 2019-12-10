@@ -19,11 +19,11 @@ export default class TodoItem extends Component {
     this.setState({ editing: true })
   }
 
-  handleSave = (id, text) => {
-    if (text.length === 0) {
+  handleSave = (id, title) => {
+    if (title.length === 0) {
       this.props.deleteTodo(id)
     } else {
-      this.props.editTodo(id, text)
+      this.props.editTodo(id, title)
     }
     this.setState({ editing: false })
   }
@@ -34,33 +34,51 @@ export default class TodoItem extends Component {
     let element
     if (this.state.editing) {
       element = (
-        <TodoTextInput text={todo.text}
+        <TodoTextInput title={todo.title}
                        editing={this.state.editing}
-                       onSave={(text) => this.handleSave(todo.id, text)} />
+                       onSave={(title) => this.handleSave(todo.id, title)} />
       )
     } else {
       element = (
-        <div className="view">
-          <input className="toggle"
-                 type="checkbox"
-                 checked={todo.completed}
-                 onChange={() => completeTodo(todo.id)} />
-          <label onDoubleClick={this.handleDoubleClick}>
-            {todo.text}
-          </label>
-          <button className="destroy"
-                  onClick={() => deleteTodo(todo.id)} />
-        </div>
+
+          <div className="ui card">
+            <div className="content">
+
+                <div className="header">
+                  {todo.title}
+                </div>
+
+                <div className="description">
+                  <div className="ui slider checkbox">
+                    <input className=""
+                           type="checkbox"
+                           checked={todo.completed}
+                           onChange={() => completeTodo(todo.id)} />
+
+                    <label onDoubleClick={this.handleDoubleClick}>
+                      {todo.description}
+                    </label>
+                  </div>
+                </div>
+            </div>
+            <div className="extra content">
+              <div className="ui two buttons">
+                  <div className="ui basic green button" onClick={this.handleDoubleClick}>Edit</div>
+                <div className="ui basic red button"
+                        onClick={() => deleteTodo(todo.id)} >Delete</div>
+              </div>
+            </div>
+          </div>
       )
     }
 
     return (
-      <li className={classnames({
+      <div className={classnames({
         completed: todo.completed,
         editing: this.state.editing
       })}>
         {element}
-      </li>
+      </div>
     )
   }
 }
