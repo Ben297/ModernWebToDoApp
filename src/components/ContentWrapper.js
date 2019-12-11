@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import VisibleTodoList from '../containers/VisibleTodoList'
+import RenderTodoList from '../containers/RenderTodoList'
 
 const ContentWrapper = ({ todosCount, completedCount, actions }) =>
   (
       <div className="sixteen wide column">
-            <VisibleTodoList />
-    </div>
+            <RenderTodoList />
+      </div>
   )
 
 ContentWrapper.propTypes = {

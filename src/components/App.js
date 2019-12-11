@@ -4,17 +4,9 @@ import MainSection from '../containers/ContentWrapper'
 
 const App = () => (
   <div className="ui grid">
-
-
-
-          <div className="sixteen wide column"> <Header /></div>
-
-
+      <div className="sixteen wide column"> <Header /></div>
       <MainSection />
-
-      </div>
-
-
+  </div>
   )
 
 export default App

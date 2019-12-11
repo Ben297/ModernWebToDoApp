@@ -16,7 +16,6 @@ store.subscribe(() => {
     });
 });
 
-
 render(
     <Provider store={store}>
         <App />

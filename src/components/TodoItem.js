@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import TodoTextInput from './TodoTextInput'
 
 export default class TodoItem extends Component {
@@ -9,15 +8,15 @@ export default class TodoItem extends Component {
     editTodo: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired,
     completeTodo: PropTypes.func.isRequired
-  }
+  };
 
   state = {
     editing: false
-  }
+  };
 
   handleDoubleClick = () => {
     this.setState({ editing: true })
-  }
+  };
 
   handleSave = (id, title) => {
     if (title.length === 0) {
@@ -26,12 +25,11 @@ export default class TodoItem extends Component {
       this.props.editTodo(id, title)
     }
     this.setState({ editing: false })
-  }
+  };
 
   render() {
-      const {todo, completeTodo, deleteTodo} = this.props
-
-      let card, edit
+      const {todo, completeTodo, deleteTodo} = this.props;
+      let card, edit;
       if (this.state.editing) {
           edit = (
               <TodoTextInput title={todo.title}
@@ -44,9 +42,7 @@ export default class TodoItem extends Component {
               {todo.title}
           </div>)
         }
-
       card = (
-
           <div className="ui card" style={{margin: 1 +'em'}}>
             <div className="content">
                 <div class="right floated " >
@@ -62,16 +58,10 @@ export default class TodoItem extends Component {
                      </div>
                 </div>
                 {edit}
-
                 <div className="description">
-
-
-
                     <label onDoubleClick={this.handleDoubleClick}>
-                      {todo.description}
                     </label>
                   </div>
-
             </div>
             <div className="extra content">
               <div className="ui two buttons">
@@ -81,16 +71,9 @@ export default class TodoItem extends Component {
               </div>
             </div>
           </div>
+      );
+      return (
+        card
       )
-    
-
-    return (
-      <div className={classnames({
-        completed: todo.completed,
-        editing: this.state.editing
-      })}>
-        {card}
-      </div>
-    )
   }
 }
